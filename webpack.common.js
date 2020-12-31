@@ -9,6 +9,9 @@ module.exports = {
 	output: {
 		filename: '[name].js',
 		path: path.resolve(__dirname, 'dist'),
+		libraryTarget : 'umd',
+		library: 'TsTmpl',
+		umdNamedDefine: true,
 	},
 	module: {
 		rules: [
