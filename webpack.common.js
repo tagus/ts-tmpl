@@ -1,6 +1,7 @@
 /* eslint-disable */
 
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
 	entry: {
@@ -9,7 +10,7 @@ module.exports = {
 	output: {
 		filename: '[name].js',
 		path: path.resolve(__dirname, 'dist'),
-		libraryTarget : 'umd',
+		libraryTarget: 'umd',
 		library: 'TsTmpl',
 		umdNamedDefine: true,
 	},
@@ -24,5 +25,11 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.tsx', '.ts', '.jsx', '.js'],
+		alias: {
+			'@': path.resolve(__dirname, 'src'),
+		},
 	},
+	plugins: [
+		new CleanWebpackPlugin(),
+	],
 };
