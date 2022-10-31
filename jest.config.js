@@ -1,4 +1,5 @@
-export default {
+/** @type {import('ts-jest').JestConfigWithTsJest} */
+module.exports = {
   clearMocks: true,
   collectCoverage: false,
   preset: 'ts-jest',
@@ -6,4 +7,8 @@ export default {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
+  testPathIgnorePatterns: [
+    'node_modules',
+    'ui',
+  ],
 };

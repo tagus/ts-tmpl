@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`rendering Hello renders feed as expected 1`] = `
-<h2>
-  Hello there 
-  Dwight Schrute
-</h2>
-`;

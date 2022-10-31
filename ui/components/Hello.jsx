@@ -1,7 +1,9 @@
 import React from 'react';
 
-const Hello = ({name}) => (
-  <h2>Hello there {name}</h2>
-)
+const Hello = ({ name }) => (
+  <h2 className="font-bold text-xl">
+    Hello there <span className="text-blue-600">{name}</span>
+  </h2>
+);
 
 export default Hello;
