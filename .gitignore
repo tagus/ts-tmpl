@@ -3,5 +3,7 @@ node_modules
 dist
 .keys
 
+.env
+
 src/public/js
 src/public/css
