@@ -1,27 +1,28 @@
 {
   "compilerOptions": {
-    "module": "ES2015",
-    "esModuleInterop": true,
     "target": "es6",
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "declaration": true,
-    "sourceMap": false,
-    "jsx": "react",
+    "module": "commonjs",
     "outDir": "dist",
-    "baseUrl": ".",
+    "allowJs": true,
+    "strict": true,
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "paths": {
       "@/*": [
-        "./src/*",
-      ]
+        "src/*"
+      ],
     },
+    "useUnknownInCatchVariables": false,
+    "resolveJsonModule": true,
   },
   "include": [
     "src/**/*.ts",
-    "src/**/*.tsx"
+    "src/**/*.js",
   ],
   "exclude": [
-    "node_modules",
-    "**/*.spec.ts",
-  ]
+    "src/public/",
+    "src/**/*.test.ts",
+  ],
 }
