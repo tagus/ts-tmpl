@@ -7,7 +7,7 @@
 		"type": "git",
 		"url": "https://github.com/tagus/ts-tmpl.git"
 	},
-	"author": "sugatpoudel",
+	"author": "tagus",
 	"license": "MIT",
 	"files": [
 		"dist/**/*"
