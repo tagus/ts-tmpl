@@ -7,3 +7,4 @@ dist
 
 src/public/js
 src/public/css
+yarn-error.log

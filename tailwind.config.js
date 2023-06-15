@@ -1,7 +1,7 @@
 module.exports = {
   content: [
     './src/views/**/*.{html,hbs}',
-    './ui/**/*.{js,jsx,svg}',
+    './ui/**/*.{ts,tsx,svg}',
   ],
   theme: {
     fontFamily: {
