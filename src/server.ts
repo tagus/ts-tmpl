@@ -6,6 +6,7 @@ import hbs from 'hbs';
 
 import 'express-async-errors';
 
+import { ApiRouter } from '@/routes/api';
 import { camelCaseBody, handleError } from '@/middlewares';
 import env from '@/config/env';
 
@@ -35,6 +36,7 @@ const main = async () => {
   /******************************************************************************/
 
   app.use('/healthy', (req, res) => res.send('ok'));
+  app.use('/api', ApiRouter);
   app.get('/', (req, res) => {
     res.render('index', {
       script: 'index',
