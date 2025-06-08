@@ -26,7 +26,8 @@ async function main() {
   /******************************************************************************/
 
   // serve all vite build output
-  // TODO: the client dist path here might need tweaking for different envs
+  // NOTE: this assumes that the output dist directory has the same relative path
+  // to the client dist output or the following will not work.
   const staticDir = path.join(__dirname, '../../client/dist');
   app.use(express.static(staticDir));
 

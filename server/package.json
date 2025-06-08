@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "web server for ts-tmpl project",
   "scripts": {
-    "build:prod": "tsc --project tsconfig.json",
-    "start:dev": "ts-node --project tsconfig.json --require tsconfig-paths/register ./src/index.ts"
+    "build:prod": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "start:dev": "ts-node --project tsconfig.json --require tsconfig-paths/register ./src/index.ts",
+    "start:prod": "node ./dist/index.js"
   },
   "packageManager": "pnpm@10.11.1",
   "dependencies": {
@@ -21,6 +22,7 @@
     "@types/express": "^5.0.3",
     "@types/morgan": "^1.9.10",
     "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
     "tsconfig-paths": "^4.2.0",
     "typescript": "~5.8.3"
   }

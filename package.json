@@ -6,6 +6,8 @@
   "scripts": {
     "client:start": "pnpm --filter client start:dev",
     "client:build": "pnpm --filter client build:prod",
-    "server:start": "pnpm --filter server start:dev"
+    "server:start": "pnpm --filter server start:dev",
+    "server:build": "pnpm --filter server build:prod",
+    "server:start:prod": "pnpm --filter server start:prod"
   }
 }
