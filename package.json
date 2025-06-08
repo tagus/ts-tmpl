@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "description": "basic template repo for typescript projects",
   "scripts": {
-    "dev": "pnpm --filter client dev",
-    "build": "pnpm --filter client build",
-    "serve": "pnpm --filter server start"
+    "client:start": "pnpm --filter client start:dev",
+    "client:build": "pnpm --filter client build:prod",
+    "server:start": "pnpm --filter server start:dev"
   }
 }
