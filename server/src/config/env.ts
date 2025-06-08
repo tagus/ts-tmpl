@@ -14,3 +14,9 @@ const env = cleanEnv(process.env, {
 });
 
 export default env;
+
+/******************************************************************************/
+
+export function isDevelopment() {
+  return env.ENVIRONMENT === 'dev';
+}

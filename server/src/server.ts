@@ -2,7 +2,6 @@ import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import path from 'path';
 import express from 'express';
-import hbs from 'hbs';
 
 import { ApiRouter } from '@/routes/api';
 import { camelCaseBody, handleError } from '@/middlewares';
@@ -11,19 +10,6 @@ import env from '@/config/env';
 async function main() {
   const app = express();
 
-  // set views dir
-  const viewsDir = path.join(__dirname, 'views');
-  app.set('views', viewsDir);
-  app.set('view engine', 'hbs');
-  hbs.registerPartials(path.join(__dirname, 'views/partials'));
-  hbs.registerHelper('toJSON', JSON.stringify);
-
-  // set static dir
-  const staticDir = path.join(__dirname, 'public');
-  app.use(express.static(staticDir));
-
-  /******************************************************************************/
-
   // common middleware
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
@@ -31,14 +17,22 @@ async function main() {
   app.use(morgan(env.isProd ? 'tiny' : 'dev'));
   app.use(camelCaseBody);
 
+  // health check endpoint
+  app.use('/healthy', (req, res) => { res.send('ok') })
+
+  // api routes
+  app.use('/api', ApiRouter);
+
   /******************************************************************************/
 
-  app.use('/healthy', (req, res) => { res.send('ok') })
-  app.use('/api', ApiRouter);
-  app.get('/', (req, res) => {
-    res.render('index', {
-      script: 'index',
-    });
+  // serve all vite build output
+  // TODO: the client dist path here might need tweaking for different envs
+  const staticDir = path.join(__dirname, '../../client/dist');
+  app.use(express.static(staticDir));
+
+  // SPA fallback: serve index.html for all other routes
+  app.get('*path', (req, res) => {
+    res.sendFile(path.join(staticDir, 'index.html'));
   });
 
   /******************************************************************************/
