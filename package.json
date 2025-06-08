@@ -3,11 +3,13 @@
   "private": true,
   "version": "1.0.0",
   "description": "basic template repo for typescript projects",
+  "packageManager": "pnpm@10.11.1",
   "scripts": {
-    "client:start": "pnpm --filter client start:dev",
-    "client:build": "pnpm --filter client build:prod",
-    "server:start": "pnpm --filter server start:dev",
-    "server:build": "pnpm --filter server build:prod",
-    "server:start:prod": "pnpm --filter server start:prod"
+    "start:client": "pnpm --filter client start:dev",
+    "build:client": "pnpm --filter client build:prod",
+    "start:server": "pnpm --filter server start:dev",
+    "build:server": "pnpm --filter server build:prod",
+    "start:server:prod": "pnpm --filter server start:prod",
+    "build:image": "docker build -t ts-tmpl-server ."
   }
 }

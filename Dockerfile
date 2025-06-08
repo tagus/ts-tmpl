@@ -5,8 +5,8 @@ FROM node:20-slim
 WORKDIR /app
 
 # copying minimum files to install dependencies
-COPY package.json package-lock.json ./
-COPY server/package.json server/pnpm-lock.yaml ./server/
+COPY package.json pnpm-lock.yaml ./
+COPY server/package.json ./server/
 
 RUN corepack enable && pnpm install --filter ./server... --prod
 
