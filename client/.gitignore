@@ -1,7 +1,3 @@
-# client side assets
-public/js
-public/css
-
 # Logs
 logs
 *.log
@@ -15,9 +11,6 @@ node_modules
 dist
 dist-ssr
 *.local
-
-.keys
-.env
 
 # Editor directories and files
 .vscode/*

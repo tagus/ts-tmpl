@@ -1,0 +1,45 @@
+{
+	"name": "ts-tmpl",
+	"version": "0.0.1",
+	"description": "basic template repo for typescript projects",
+	"main": "./dist/index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tagus/ts-tmpl.git"
+	},
+	"author": "tagus",
+	"license": "MIT",
+	"files": [
+		"dist/**/*"
+	],
+	"scripts": {
+		"test": "jest",
+		"lint": "./node_modules/.bin/eslint . --ext .ts --ext .js --ext .jsx",
+		"build": "npm-run-all -s build:src build:tw build:ui",
+		"build:src": "ts-node build.ts",
+		"build:ui": "cd ui; yarn build",
+		"build:tw": "tailwindcss -i ./src/assets/css/style.css -o ./dist/public/css/style.css",
+		"build:dev:tw": "npx tailwindcss -i ./src/assets/css/style.css -o ./src/public/css/style.css",
+		"build:watch:ui": "cd ui; yarn build:watch",
+		"build:watch:tw": "yarn build:dev:tw --watch",
+		"start": "NODE_ENV=production node -r module-alias/register ./dist",
+		"start:dev": "concurrently --kill-all --handle-input \"nodemon\" \"yarn build:watch:ui\" \"yarn build:watch:tw\""
+	},
+	"nodemonConfig": {
+		"watch": [
+			"src"
+		],
+		"ext": "ts, html",
+		"ignore": [
+			"src/public"
+		],
+		"exec": "./node_modules/.bin/ts-node --files -r tsconfig-paths/register ./src"
+	},
+	"_moduleAliases": {
+		"@": "dist/"
+	},
+	"dependencies": {
+	},
+	"devDependencies": {
+	}
+}
